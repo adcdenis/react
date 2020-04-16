@@ -12,3 +12,5 @@ server.listen(port, function() {
 console.log(`Backend is Running in port ${port}.`)
 
 })
+
+module.exports = server

@@ -1,0 +1,7 @@
+module.exports =  mongoose.createConnection('mongodb://localhost/todo', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true    
+
+    //useMongoClient: true,
+    /* other options */
+  });
