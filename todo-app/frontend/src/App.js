@@ -1,9 +1,13 @@
 import React from 'react';
 import './App.css';
-import Todo from './todo/todo'
-//import { Button } from 'reactstrap';
-//import { Jumbotron } from 'reactstrap';
+import '../node_modules/font-awesome/css/font-awesome.min.css'; 
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Menu from './template/menu'
+import Routes from './todo/routes'
 
 export default props => (
- <Todo valor="inicio react"/>  
+    <div className="container">
+        <Menu/>
+        <Routes/>  
+    </div>
 )
