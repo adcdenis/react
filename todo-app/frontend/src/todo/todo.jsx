@@ -8,9 +8,9 @@ export default class Todo extends React.Component {
     render() {
         return (
             <div>
-               <Header name='Tarefas' small='Cadastro'/>
-               <TodoList/>
+               <Header name='Tarefas' small='Cadastro'/>               
                <TodoForm/>
+               <TodoList/>
             </div>
         )
     }
