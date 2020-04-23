@@ -1,5 +1,10 @@
 import React from 'react'
+import Header from '../template/header'
 
 export default props=> (
-    <h1>about</h1>
+    <div>
+         <Header name='Sobre' small='Nós'/>         
+         <h3>conteúdo estático</h3>
+         
+    </div>
 )
