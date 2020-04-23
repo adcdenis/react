@@ -8,6 +8,6 @@ import Routes from './todo/routes'
 export default props => (
     <div className="container">
         <Menu/>
-        <Routes/>  
+        <Routes/>
     </div>
 )
