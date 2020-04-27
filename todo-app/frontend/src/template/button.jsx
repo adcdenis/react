@@ -1,15 +1,11 @@
 import React from 'react'
+import If from './If'
 
-export default props => {
-
-    if (props.rendered) {
-
-        return (
-
-            <button className={`btn btn-${props.styled}`}>            
-                <i className={`fa fa-${props.icon}`} />
-            </button>
-        )
-    } else
-        return null
-}
+export default props => (    
+    
+    <If rendered={props.rendered} > 
+        <button className={`btn btn-${props.styled}`}>            
+           <i className={`fa fa-${props.icon}`} />
+        </button>
+    </If>     
+)
