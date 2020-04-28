@@ -1,7 +1,33 @@
 import React from 'react'
 
-export default props => (
-    <div>
-        <h1>List</h1>
-    </div>
-)
+export default props => {
+
+    const montaLinhas = (lista) => {
+        const list = lista || []
+
+        list.map(elem => (
+            <tr>
+                <td>
+                    elem.descricao
+             </td>
+            </tr>
+        ))
+
+    }
+
+    return (
+        <table className='table'>
+            <thead>
+                <tr>
+                    <th>
+                        Descricao
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {montaLinhas(props.list)}
+            </tbody>
+        </table>
+    )
+
+}
