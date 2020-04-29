@@ -20,7 +20,7 @@ export default props => {
             <thead>
                 <tr>
                     <th>
-                        Descricao
+                        Descrição
                     </th>
                 </tr>
             </thead>
