@@ -12,6 +12,7 @@ export default class Todo extends React.Component {
         super(props)
         this.handleAdd = this.handleAdd.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.handleRemove = this.handleRemove.bind(this)
         this.state = { description : '' , list : [] }
         this.refresh()
     }
@@ -19,9 +20,9 @@ export default class Todo extends React.Component {
     handleAdd() {
         console.log('ADD') 
         console.log(this.state.description)   
-        //const descricao = this.state.description
-        this.refresh()
-        //axios.post(URL, {descricao}).then(result => this.refresh())       
+        const descricao = this.state.description
+        axios.post(URL, {descricao}).then(result => this.refresh())   
+        //this.refresh()       
     }
 
     handleChange(e) {
@@ -29,6 +30,13 @@ export default class Todo extends React.Component {
         //const eTarget = e.target.value;
         //console.log(eTarget.value);      
         this.setState( {...this.state , description : e.target.value} )
+    }
+
+    handleRemove(todo) {
+        console.log('REMOVE')  
+        console.log(`${URL}/?${todo._id}`);  
+        axios.delete(`${URL}/${todo._id}`).then(result => this.refresh())   
+        //this.refresh()    
     }
 
     refresh() {
@@ -44,7 +52,7 @@ export default class Todo extends React.Component {
             <div>
                <Header name='Tarefas' small='Cadastro'/>               
                <TodoForm handleAdd={this.handleAdd} handleChange={this.handleChange} description={this.state.description} />
-               <TodoList list={this.state.list}/>
+               <TodoList list={this.state.list} handleRemove={this.handleRemove}/>
             </div>
         )
     }

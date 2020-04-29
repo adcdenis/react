@@ -9,7 +9,7 @@ export default props => (
             <input className='form-control' placeholder='digite aqui uma tarefa' onChange={props.handleChange} value={props.description}/>
         </Grid>    
         <Grid xs='12' sm='3' md='2'>
-            <Button icon='plus' rendered={true} styled='primary' handleAdd={props.handleAdd} />
+            <Button icon='plus' rendered={true} styled='primary' handleAction={props.handleAdd} />
         </Grid>
     </div>
 )
