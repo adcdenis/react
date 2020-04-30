@@ -9,11 +9,13 @@ export default props => {
 
         return list.map(elem => (
             <tr key={elem._id}>
-                <td>
+                <td className={elem.feito ? 'marqueFeito' : ''}>
                     {elem.descricao}
                 </td>
-                <td>
-                    <Button icon='trash-o' rendered={true} styled='danger'  handleAction={() => props.handleRemove(elem)}/>
+                <td className='tableActions'>
+                    <Button icon='check' rendered={!elem.feito} styled='success'  handleAction={() => props.handleConcluido(elem)}/>
+                    <Button icon='undo' rendered={elem.feito} styled='warning'  handleAction={() => props.handleNaoConcluido(elem)}/>
+                    <Button icon='trash-o' rendered={elem.feito} styled='danger'  handleAction={() => props.handleRemove(elem)}/>
                 </td>
             </tr>
         ))

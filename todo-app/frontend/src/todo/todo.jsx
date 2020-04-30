@@ -13,6 +13,10 @@ export default class Todo extends React.Component {
         this.handleAdd = this.handleAdd.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleRemove = this.handleRemove.bind(this)
+        this.handleConcluido = this.handleConcluido.bind(this)
+        this.handleNaoConcluido = this.handleNaoConcluido.bind(this)
+        this.handleSearch = this.handleSearch.bind(this)
+        this.handleClear = this.handleClear.bind(this)
         this.state = { description : '' , list : [] }
         this.refresh()
     }
@@ -35,13 +39,41 @@ export default class Todo extends React.Component {
     handleRemove(todo) {
         console.log('REMOVE')  
         console.log(`${URL}/?${todo._id}`);  
-        axios.delete(`${URL}/${todo._id}`).then(result => this.refresh())   
+        axios.delete(`${URL}/${todo._id}`).then(result => this.refresh(this.state.description))   
         //this.refresh()    
     }
 
-    refresh() {
-        axios.get(`${URL}?sort=-dataCriacao`).then(
-            result => {this.setState({...this.state, description : '', list : result.data}) 
+    handleConcluido(todo) {
+        console.log('CONCLUIDO')  
+        console.log(`${URL}/?${todo._id}`);  
+        axios.put(`${URL}/${todo._id}`, { feito: true}).then(result => this.refresh(this.state.description))   
+        //this.refresh()    
+    }
+
+    handleNaoConcluido(todo) {
+        console.log('NÃO CONCLUIDO')  
+        console.log(`${URL}/?${todo._id}`);  
+        axios.put(`${URL}/${todo._id}`, {feito: false}).then(result => this.refresh(this.state.description))   
+        //this.refresh()    
+    }
+
+    handleSearch() {
+        console.log('SEARCH')
+        this.refresh(this.state.description)   
+    }
+
+    handleClear() {
+        console.log('CLEAR') 
+        this.refresh()
+        //this.setState({description: ''})   
+    }
+
+    refresh(description = '') {
+
+        const regex = description ? `&descricao__regex=/${description}/` : ''
+
+        axios.get(`${URL}?sort=-dataCriacao${regex}`).then(
+            result => {this.setState({...this.state, description, list : result.data}) 
             console.log(result.data)}
         )
         
@@ -51,8 +83,14 @@ export default class Todo extends React.Component {
         return (
             <div>
                <Header name='Tarefas' small='Cadastro'/>               
-               <TodoForm handleAdd={this.handleAdd} handleChange={this.handleChange} description={this.state.description} />
-               <TodoList list={this.state.list} handleRemove={this.handleRemove}/>
+               <TodoForm handleAdd={this.handleAdd} handleChange={this.handleChange} 
+               handleSearch={this.handleSearch} 
+               handleClear={this.handleClear}
+               description={this.state.description} />
+               <TodoList list={this.state.list} handleRemove={this.handleRemove} 
+               handleConcluido={this.handleConcluido}
+               handleNaoConcluido={this.handleNaoConcluido}
+               />
             </div>
         )
     }
