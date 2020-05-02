@@ -93,8 +93,7 @@ export default class Todo extends React.Component {
           handleClear={this.handleClear}
           description={this.state.description}
         />
-        <TodoList
-          list={this.state.list}
+        <TodoList          
           handleRemove={this.handleRemove}
           handleConcluido={this.handleConcluido}
           handleNaoConcluido={this.handleNaoConcluido}
