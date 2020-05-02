@@ -1,0 +1,16 @@
+.btn {
+    margin-right: 5px;
+}
+
+.marqueFeito{
+    text-decoration: line-through;
+    color: darkgray;
+}
+
+.tableActions {
+    width: 205px;
+}
+
+.todoForm{
+    padding-bottom: 60px;
+}
