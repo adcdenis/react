@@ -1,8 +1,9 @@
 import React from "react";
 import Grid from "../template/grid";
 import Button from "../template/button";
+import { connect } from "react-redux";
 
-export default (props) => {
+const TodoForm = (props) => {
   const keyHandler = (e) => {
     if (e.key === "Enter") {
       e.shiftKey ? props.handleSearch() : props.handleAdd();
@@ -13,35 +14,45 @@ export default (props) => {
 
   return (
     <div role="form" className="todoForm">
-      <Grid xs="12" sm="9" md="10">
-        <input
-          className="form-control"
-          placeholder="digite aqui uma tarefa"
-          onChange={props.handleChange}
-          value={props.description}
-          onKeyUp={keyHandler}
-        />
-      </Grid>
-      <Grid xs="12" sm="3" md="2">
-        <Button
-          icon="search"
-          rendered={true}
-          styled="info"
-          handleAction={props.handleSearch}
-        />
-        <Button
-          icon="plus"
-          rendered={true}
-          styled="primary"
-          handleAction={props.handleAdd}
-        />
-        <Button
-          icon="close"
-          rendered={true}
-          styled="default"
-          handleAction={props.handleClear}
-        />
-      </Grid>
+      <table className="table">
+        <tr>
+          <td>
+            <input
+              className="form-control"
+              placeholder="digite aqui uma tarefa"
+              onChange={props.handleChange}
+              value={props.description}
+              onKeyUp={keyHandler}
+            />
+          </td>
+          <td className="tableActions">
+            <Button
+              icon="search"
+              rendered={true}
+              styled="info"
+              handleAction={props.handleSearch}
+            />
+            <Button
+              icon="plus"
+              rendered={true}
+              styled="primary"
+              handleAction={props.handleAdd}
+            />
+            <Button
+              icon="close"
+              rendered={true}
+              styled="default"
+              handleAction={props.handleClear}
+            />
+          </td>
+        </tr>
+      </table>
     </div>
   );
 };
+
+const mapStateToProps = (state) => ({
+  description: state.todo.description,
+});
+
+export default connect(mapStateToProps)(TodoForm);
