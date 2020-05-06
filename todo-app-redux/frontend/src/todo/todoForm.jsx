@@ -51,7 +51,7 @@ class TodoForm extends React.Component {
                   icon="plus"
                   rendered={true}
                   styled="primary"
-                  handleAction={this.props.add}
+                  handleAction={() => this.props.add(this.props.description)}
                 />
                 <Button icon="close"
                   rendered={true}
