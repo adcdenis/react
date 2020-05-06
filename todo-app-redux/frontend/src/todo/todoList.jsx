@@ -10,7 +10,7 @@ const TodoList = props => {
 
         return list.map(elem => (
             <tr key={elem._id}>
-                <td className={elem.feito ? 'marqueFeito' : ''}>
+                <td className={elem.feito ? 'marqueFeito' : ''}> 
                     {elem.descricao}
                 </td>
                 <td className='tableActions'>
@@ -45,7 +45,7 @@ const TodoList = props => {
 
 const mapStateToProps = state => (
     {
-        list: state.todo.list
+        list: state.todo.list.data
     }
 )
 

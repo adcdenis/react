@@ -9,13 +9,26 @@ export const changeDescription = event => (
     }
 )
 
-export const search = () => {
+export const search = () => {   
 
-    const request = axios.get(`${URL}?sort=-createdAt`)
+    const request = axios.get(`${URL}?sort=-dataCriacao`)//.then(result => {
+        //console.log('++++search sendo chamado2')
+       // console.log(result.data)} )
 
     return {
         type: 'TODO_SEARCHED',
-        payload : request.data
+        payload : request
+    }
+
+}
+
+export const add = (descricao) => {   
+
+    const request = axios.post(URL, { descricao })    
+
+    return {
+        type: 'ADD',
+        payload : request
     }
 
 }
