@@ -48,7 +48,7 @@ class TodoForm extends React.Component {
                   icon="search"
                   rendered={true}
                   styled="info"
-                  handleAction={this.props.handleSearch}
+                  handleAction={this.props.seach}
                 />
                 <Button
                   icon="plus"
