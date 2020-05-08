@@ -1,6 +1,8 @@
 import React from 'react'
 import Button from '../template/button'
 import {connect} from 'react-redux'
+import { remove, concluido, desfazer } from './todoAction'
+import { bindActionCreators } from 'redux'
 
 const TodoList = props => {
 
@@ -14,9 +16,9 @@ const TodoList = props => {
                     {elem.descricao}
                 </td>
                 <td className='tableActions'>
-                    <Button icon='check' rendered={!elem.feito} styled='success'  handleAction={() => props.handleConcluido(elem)}/>
-                    <Button icon='undo' rendered={elem.feito} styled='warning'  handleAction={() => props.handleNaoConcluido(elem)}/>
-                    <Button icon='trash-o' rendered={elem.feito} styled='danger'  handleAction={() => props.handleRemove(elem)}/>
+                    <Button icon='check' rendered={!elem.feito} styled='success'  handleAction={() => props.concluido(elem)}/>
+                    <Button icon='undo' rendered={elem.feito} styled='warning'  handleAction={() => props.desfazer(elem)}/>
+                    <Button icon='trash-o' rendered={elem.feito} styled='danger'  handleAction={() => props.remove(elem)}/>
                 </td>
             </tr>
         ))
@@ -49,4 +51,7 @@ const mapStateToProps = state => (
     }
 )
 
-export default connect(mapStateToProps)(TodoList)
+const mapDispatchToProps = dispatch => (
+    bindActionCreators({ concluido, remove, desfazer }, dispatch));
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList)

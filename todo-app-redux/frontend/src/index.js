@@ -15,11 +15,11 @@ import thunk from 'redux-thunk'
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
 //const store = createStore(reducers, devTools);
-//const store = applyMiddleware(thunk, multi, promise)(createStore)(reducers, devTools);
+const store = applyMiddleware(thunk, multi, promise)(createStore)(reducers, devTools);
 
-const middleware = applyMiddleware(thunk, multi, promise)
-const createSt = middleware(createStore)
-const store = createSt(reducers, devTools)
+//const middleware = applyMiddleware(thunk, multi, promise)
+//const createSt = middleware(createStore)
+//const store = createSt(reducers, devTools)
 
 ReactDOM.render(
   

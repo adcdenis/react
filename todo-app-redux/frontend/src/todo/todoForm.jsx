@@ -10,7 +10,6 @@ class TodoForm extends React.Component {
   constructor(props) {
     super(props)
     this.keyHandler = this.keyHandler.bind(this)
-
   }
 
   componentDidMount() {   
