@@ -2,7 +2,7 @@ import React from "react"
 import Button from "../template/button"
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
-import { changeDescription, search, add } from './todoAction'
+import { changeDescription, search, search2, add, limpar } from './todoAction'
 
 
 class TodoForm extends React.Component {
@@ -47,7 +47,7 @@ class TodoForm extends React.Component {
                   icon="search"
                   rendered={true}
                   styled="info"
-                  handleAction={this.props.seach}
+                  handleAction={() => this.props.search2(this.props.description)}
                 />
                 <Button
                   icon="plus"
@@ -58,7 +58,7 @@ class TodoForm extends React.Component {
                 <Button icon="close"
                   rendered={true}
                   styled="default"
-                  handleAction={this.props.handleClear}
+                  handleAction={this.props.limpar}
                 />
               </td>
             </tr>
@@ -77,6 +77,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ changeDescription, search, add }, dispatch));
+  bindActionCreators({ changeDescription, search, search2, add, limpar }, dispatch));
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);

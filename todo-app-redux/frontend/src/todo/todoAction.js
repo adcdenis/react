@@ -9,14 +9,32 @@ export const changeDescription = event => (
     }
 )
 
+export const limpar = () => {
+    return [{
+        type: 'LIMPAR',
+        payload : ''
+    },
+
+    search()
+
+]
+}
+
 export const search = () => {
 
-    const request = axios.get(`${URL}?sort=-dataCriacao`)//.then(result => {
-        //console.log('++++search sendo chamado2')
-       // console.log(result.data)} )
-
+    const request = axios.get(`${URL}?sort=-dataCriacao`)
     return {
         type: 'TODO_SEARCHED',
+        payload : request
+    }
+}
+
+export const search2 = (description) => {
+
+    const regex = description ? `&descricao__regex=/${description}/` : "";
+    const request = axios.get(`${URL}?sort=-dataCriacao${regex}`)
+    return {
+        type: 'TODO_SEARCHED2',
         payload : request
     }
 }
