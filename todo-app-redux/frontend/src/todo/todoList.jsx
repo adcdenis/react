@@ -47,7 +47,7 @@ const TodoList = props => {
 
 const mapStateToProps = state => (
     {
-        list: state.todo.list.data
+        list: state.todo.list
     }
 )
 

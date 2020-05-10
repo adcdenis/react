@@ -2,7 +2,7 @@ import React from "react"
 import Button from "../template/button"
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
-import { changeDescription, search, search2, add, limpar } from './todoAction'
+import { changeDescription, search, add, limpar } from './todoAction'
 
 
 class TodoForm extends React.Component {
@@ -18,12 +18,12 @@ class TodoForm extends React.Component {
 
   keyHandler(e) {
 
-    const { handleSearch, description, add } = this.props
+    const { search, description, add, limpar } = this.props
 
     if (e.key === "Enter") {
-      e.shiftKey ? handleSearch() : add(description);
+      e.shiftKey ? search() : add(description);
     } else if (e.key === "Escape") {
-      this.handleClear();
+      limpar();
     }
   }
 
@@ -47,7 +47,7 @@ class TodoForm extends React.Component {
                   icon="search"
                   rendered={true}
                   styled="info"
-                  handleAction={() => this.props.search2(this.props.description)}
+                  handleAction={() => this.props.search()}
                 />
                 <Button
                   icon="plus"
@@ -77,6 +77,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ changeDescription, search, search2, add, limpar }, dispatch));
+  bindActionCreators({ changeDescription, search, add, limpar }, dispatch));
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);
