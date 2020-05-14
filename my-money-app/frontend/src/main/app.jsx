@@ -1,9 +1,16 @@
-import React from "react"
+import React from 'react'
 import '../common/template/dependencies'
+import Header from '../common/template/header'
+import SideBar from '../common/template/sideBar'
+import Footer from '../common/template/footer'
 
 export default (props) => (
-  <div className="wrapper">
-    <h1>App</h1>
-    <i className='fa fa-check-circle-o' />
+  <div className='wrapper'>
+    <Header />
+    <SideBar />
+    <div className='content-wrapper'>
+      <h1>Conteudo</h1>
+    </div>
+    <Footer />
   </div>
 )
