@@ -11,6 +11,7 @@ export default (props) => (
     <SideBar />
     <div className='content-wrapper'>
       <Routes/>
+      
     </div>
     <Footer />
   </div>
