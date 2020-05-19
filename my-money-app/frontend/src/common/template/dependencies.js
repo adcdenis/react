@@ -1,5 +1,8 @@
+import './jquery-loader';
+
 import 'admin-lte/plugins/jQueryUI/jquery-ui.min'
 import 'admin-lte/plugins/fastclick/fastclick'
+
 import 'admin-lte/plugins/slimScroll/jquery.slimscroll.min'
 import 'admin-lte/dist/js/app.min'
 import 'ionicons/dist/css/ionicons.min.css'
@@ -9,3 +12,6 @@ import 'admin-lte/dist/css/skins/_all-skins.min.css'
 import 'admin-lte/plugins/iCheck/flat/blue.css'
 import 'font-awesome/css/font-awesome.min.css'
 import './custom.css'
+
+
+

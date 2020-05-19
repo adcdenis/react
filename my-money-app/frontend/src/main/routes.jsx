@@ -9,7 +9,7 @@ export default (props) => (
     <Switch>
       <Route path="/dashboard" component={DashBoard} />
       <Route path="/billingCycles" component={BillingCycle} />
-      <Route component={DashBoard} />
+      <Route component={BillingCycle} />
     </Switch>
   </Router>
 )
