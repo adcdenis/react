@@ -5,8 +5,7 @@ export default (props) => (
   <footer className='main-footer'>
     <strong>
       Copyright &copy; 2020
-      <a href='http://canuto.com.br' target='_blank'>
-        {' '}
+      <a href='http://canuto.com.br' target='_blank'>       
         CanutoBr
       </a>
     </strong>

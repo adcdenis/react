@@ -19,8 +19,7 @@ class Dashboard extends React.Component {
 
     return (
       <div>
-        <ContentHeader title="Dashboard" small="Versão 1.0" />
-         
+        <ContentHeader title="Dashboard" small="Versão 1.0" />         
         <Content>
           <Row>
             <ValueBox
@@ -45,8 +44,7 @@ class Dashboard extends React.Component {
               text="Valor Consolidado"
             />
           </Row>
-        </Content>
-         
+        </Content>         
       </div>
     )
   }

@@ -9,6 +9,8 @@ import TabContent from "../common/tab/tabContent"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 import { selectTab, showTabs } from "../common/tab/tabActions"
+import BillingCycleList from './billingCycleList'
+import BillingCycleForm from './billingCycleForm'
 
 class BillingCycles extends React.Component {
 
@@ -23,39 +25,29 @@ class BillingCycles extends React.Component {
         <ContentHeader title="BillingCycles" small="Versão 1.0" /> 
         <Content>
           <Tabs>
-            {" "}
-             
-            <TabsHeader>
-              {" "}
-               
+            <TabsHeader>               
               <TabHeader label="Listar" icon="bars" target="tabList" />
                <TabHeader label="Incluir" icon="plus" target="tabCreate" />
                <TabHeader label="Alterar" icon="pencil" target="tabUpdate" />
                <TabHeader label="Excluir" icon="trash-o" target="tabDelete" />
-            </TabsHeader>
-             
-            <TabsContent>
-               
+            </TabsHeader>             
+            <TabsContent>               
               <TabContent id="tabList">
-                 <h1>Lista</h1> 
-              </TabContent>
-               
+                 <BillingCycleList>                  
+                </BillingCycleList>
+              </TabContent>               
               <TabContent id="tabCreate">
-                 <h1>Incluir</h1> 
-              </TabContent>
-               
+                 <BillingCycleForm/>
+              </TabContent>               
               <TabContent id="tabUpdate">
                  <h1>Alterar</h1> 
-              </TabContent>
-               
+              </TabContent>               
               <TabContent id="tabDelete">
                  <h1>Excluir</h1> 
               </TabContent>
-            </TabsContent>
-             
+            </TabsContent>             
           </Tabs>
-        </Content>
-         
+        </Content>         
       </div>
     )
   }

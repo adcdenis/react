@@ -20,8 +20,7 @@ class TabHeader extends Component {
           >
              <i className={`fa fa-${this.props.icon}`}></i>
             {this.props.label} 
-          </a>
-           
+          </a>           
         </li>
       </If>
     )
