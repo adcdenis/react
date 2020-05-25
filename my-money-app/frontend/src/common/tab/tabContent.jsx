@@ -10,9 +10,7 @@ class TabContent extends React.Component {
 
     return (
         <If rendered={visible}>
-            <div id={this.props.id} className={`tab-pane ${selected ? 'active' : ''}`}> 
-                {this.props.children}
-            </div>
+            <div id={this.props.id} className={`tab-pane ${selected ? 'active' : ''}`}>{this.props.children}</div>
         </If>
     )
   }
