@@ -4,12 +4,26 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "echo",
-            "type": "shell",
-            "windows": {
-                "command": "cd ..\\backend npm run dev"
-            },
-            "problemMatcher": []
+            "label": "backend",
+            "command": "cd ../backend",
+            "type": "shell"            
+        },
+
+        {
+            "label": "mgd",
+            "command": "start mongod",
+            "type": "shell"
+        },
+        {
+            "label": "back start",
+            "command": "npm run dev",
+            "dependsOn": [
+                "mgd"
+            ],
+            "options": {
+                "cwd": "../backend"
+        },
+            "type": "shell"
         }
     ]
 }
