@@ -8,10 +8,8 @@ class BillingCycleForm extends React.Component {
     const {handleSubmit} = this.props
   
     return (
-      <form onSubmit={handleSubmit}>
-         
-        <div className="box-body">
-           
+      <form onSubmit={handleSubmit}>         
+        <div className="box-body">           
           <Field
             name="name"
             component={LabelAndInput}
@@ -33,16 +31,12 @@ class BillingCycleForm extends React.Component {
             cols="12 4"
             placeholder="Informe o ano"
           />
-        </div>
-         
-        <div className="box-footer">
-          {" "}
-           
+        </div>         
+        <div className="box-footer">           
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
-        </div>{" "}
-         
+        </div>         
       </form>
     )
   }
