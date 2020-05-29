@@ -11,44 +11,44 @@ import { bindActionCreators } from "redux"
 import { selectTab, showTabs } from "../common/tab/tabActions"
 import BillingCycleList from './billingCycleList'
 import BillingCycleForm from './billingCycleForm'
-import { create} from './billingCycleAction'
+import { create } from './billingCycleAction'
 
 class BillingCycles extends React.Component {
 
   componentDidMount() {
-    this.props.selectTab('tabList')  
+    this.props.selectTab('tabList')
     this.props.showTabs('tabList', 'tabCreate')
   }
 
   render() {
     return (
       <div>
-        <ContentHeader title="BillingCycles" small="Versão 1.0" /> 
+        <ContentHeader title="BillingCycles" small="Versão 1.0" />
         <Content>
           <Tabs>
-            <TabsHeader>               
+            <TabsHeader>
               <TabHeader label="Listar" icon="bars" target="tabList" />
-               <TabHeader label="Incluir" icon="plus" target="tabCreate" />
-               <TabHeader label="Alterar" icon="pencil" target="tabUpdate" />
-               <TabHeader label="Excluir" icon="trash-o" target="tabDelete" />
-            </TabsHeader>             
-            <TabsContent>               
+              <TabHeader label="Incluir" icon="plus" target="tabCreate" />
+              <TabHeader label="Alterar" icon="pencil" target="tabUpdate" />
+              <TabHeader label="Excluir" icon="trash-o" target="tabDelete" />
+            </TabsHeader>
+            <TabsContent>
               <TabContent id="tabList">
-                 <BillingCycleList>                  
+                <BillingCycleList>
                 </BillingCycleList>
-              </TabContent>               
-              <TabContent id="tabCreate">
-                 <BillingCycleForm onSubmit={this.props.create}/>
-              </TabContent>               
-              <TabContent id="tabUpdate">
-                 <h1>Alterar</h1> 
-              </TabContent>               
-              <TabContent id="tabDelete">
-                 <h1>Excluir</h1> 
               </TabContent>
-            </TabsContent>             
+              <TabContent id="tabCreate">
+                <BillingCycleForm onSubmit={this.props.create} />
+              </TabContent>
+              <TabContent id="tabUpdate">
+                <h1>Alterar</h1>
+              </TabContent>
+              <TabContent id="tabDelete">
+                <h1>Excluir</h1>
+              </TabContent>
+            </TabsContent>
           </Tabs>
-        </Content>         
+        </Content>
       </div>
     )
   }

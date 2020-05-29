@@ -4,9 +4,9 @@ import MenuTree from './menuTree'
 
 export default (props) => (
   <ul className='sidebar-menu'>
-    <MenuItem path='/dashboard' label='Dashboard' icon='dashboard'/>
+    <MenuItem path='/dashboard' label='Dashboard' icon='dashboard' />
     <MenuTree label='Cadastro' icon='edit'>
-        <MenuItem path='/billingCycles' label='Ciclos de Pagamento' icon='usd'/>    
+      <MenuItem path='/billingCycles' label='Ciclos de Pagamento' icon='usd' />
     </MenuTree>
   </ul>
 )

@@ -11,10 +11,10 @@ export default (props) => (
     <Header />
     <SideBar />
     <div className='content-wrapper'>
-      <Routes/>      
+      <Routes />
     </div>
     <Footer />
-    <Messages/>
-    
+    <Messages />
+
   </div>
 )
