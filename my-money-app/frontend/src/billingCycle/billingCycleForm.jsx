@@ -7,8 +7,8 @@ class BillingCycleForm extends React.Component {
     const { handleSubmit } = this.props
 
     return (
-      <form onSubmit={handleSubmit}>         
-        <div className='box-body'>           
+      <form onSubmit={handleSubmit}>
+        <div className='box-body'>
           <Field
             name='name'
             component={LabelAndInput}
@@ -22,23 +22,23 @@ class BillingCycleForm extends React.Component {
             label='Mês'
             cols='12 4'
             placeholder='Informe o mês'
-            />
-            <Field
+          />
+          <Field
             name='year'
             component={LabelAndInput}
             label='Ano'
             cols='12 4'
             placeholder='Informe o ano'
           />
-        </div>         
-        <div className='box-footer'>          
+        </div>
+        <div className='box-footer'>
           <button type='submit' className='btn btn-primary'>
             Submit
           </button>
-        </div>         
+        </div>
       </form>
     )
   }
 }
 
-export default reduxForm({ form: 'billingCycleForm', destroyOnUnmount:false })(BillingCycleForm)
+export default reduxForm({ form: 'billingCycleForm', destroyOnUnmount: false })(BillingCycleForm)

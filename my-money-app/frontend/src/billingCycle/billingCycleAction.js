@@ -14,22 +14,23 @@ export function getList() {
 }
 
 export function create(values) {
-  return dispatch => {
-   
-    axios.post(`${BASE_URL}/billingCycles`, values).then(
-      (resp)=> { toastr.success("Sucesso", "Operação realizada com sucesso!")
-      dispatch([
-         resetForm('billingCycleForm'),
-         getList(),
-         selectTab('tabList'),
-         showTabs('tabList', 'tabCreate')
-         ])
-    
-    }
-    ).catch(
-      e => { e.response.data.errors.forEach(element => { toastr.error("Erro", element)        
-      });}
-    )
+  return (dispatch) => {
+    axios
+      .post(`${BASE_URL}/billingCycles`, values)
+      .then((resp) => {
+        toastr.success('Sucesso', 'Operação realizada com sucesso!')
+        dispatch([
+          resetForm('billingCycleForm'),
+          getList(),
+          selectTab('tabList'),
+          showTabs('tabList', 'tabCreate'),
+        ])
+      })
+      .catch((e) => {
+        e.response.data.errors.forEach((element) => {
+          toastr.error('Erro', element)
+        })
+      })
     return {
       type: 'TEMP',
     }
@@ -37,10 +38,9 @@ export function create(values) {
 }
 
 export function editar(billingCycle) {
-    
   return [
-     selectTab('tabUpdate'),
-     showTabs('tabUpdate'),
-     initialize('billingCycleForm', billingCycle)
+    selectTab('tabUpdate'),
+    showTabs('tabUpdate'),
+    initialize('billingCycleForm', billingCycle),
   ]
 }
