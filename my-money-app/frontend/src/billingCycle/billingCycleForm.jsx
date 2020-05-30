@@ -4,6 +4,7 @@ import LabelAndInput from '../common/form/labelAndInput'
 import { init } from './billingCycleAction'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import CrediList from './credList'
 
 class BillingCycleForm extends React.Component {
   render() {
@@ -36,6 +37,7 @@ class BillingCycleForm extends React.Component {
             placeholder='Informe o ano'
             readOnly={this.props.readOnly}
           />
+          <CrediList cols='12 6'/>
         </div>
         <div className='box-footer'>
           <button type='submit' className={`btn btn-${this.props.icon}`}>
