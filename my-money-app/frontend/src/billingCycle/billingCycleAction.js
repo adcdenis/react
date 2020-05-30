@@ -19,10 +19,18 @@ export function create(values) {
   return invoker(values, 'post')
 }
 
-export function editar(billingCycle) {
+export function showEditar(billingCycle) {
   return [
     selectTab('tabUpdate'),
     showTabs('tabUpdate'),
+    initialize('billingCycleForm', billingCycle),
+  ]
+}
+
+export function showDelete(billingCycle) {
+  return [
+    selectTab('tabDelete'),
+    showTabs('tabDelete'),
     initialize('billingCycleForm', billingCycle),
   ]
 }

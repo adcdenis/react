@@ -18,6 +18,7 @@ class BillingCycleForm extends React.Component {
             label='Nome'
             cols='12 4'
             placeholder='Informe o nome'
+            readOnly={this.props.readOnly}
           />
           <Field
             name='month'
@@ -25,6 +26,7 @@ class BillingCycleForm extends React.Component {
             label='Mês'
             cols='12 4'
             placeholder='Informe o mês'
+            readOnly={this.props.readOnly}
           />
           <Field
             name='year'
@@ -32,11 +34,12 @@ class BillingCycleForm extends React.Component {
             label='Ano'
             cols='12 4'
             placeholder='Informe o ano'
+            readOnly={this.props.readOnly}
           />
         </div>
         <div className='box-footer'>
-          <button type='submit' className='btn btn-primary'>
-            Salvar
+          <button type='submit' className={`btn btn-${this.props.icon}`}>
+            {this.props.buttonLabel}
           </button>
           <button type='button' className='btn btn-default' onClick={this.props.init}  >
             Cancelar
