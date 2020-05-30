@@ -37,7 +37,7 @@ class BillingCycleForm extends React.Component {
             placeholder='Informe o ano'
             readOnly={this.props.readOnly}
           />
-          <CrediList cols='12 6'/>
+          <CrediList cols='12 6' readOnly={this.props.readOnly}/>
         </div>
         <div className='box-footer'>
           <button type='submit' className={`btn btn-${this.props.icon}`}>

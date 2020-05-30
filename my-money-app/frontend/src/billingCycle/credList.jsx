@@ -1,6 +1,7 @@
 import React from 'react'
 import Grid from '../common/layolt/grid'
 import { Field } from 'redux-form'
+import Input from '../common/form/Input'
 
 class CredList extends React.Component {
 
@@ -8,13 +9,15 @@ class CredList extends React.Component {
         return (
             <tr>
                 <td>
-                    <Field name='credits[0].name' component='input' />
+                    <Field name='credits[0].name' placeholder='Informe o nome' readOnly={this.props.readOnly}
+                        component={Input} />
                 </td>
                 <td>
-                    <Field name='credits[0].value' component='input' />
+                    <Field name='credits[0].value' placeholder='Informe o valor' readOnly={this.props.readOnly}
+                        component={Input} />
                 </td>
                 <td>
-                    <Field component='input' />
+                    
                 </td>
             </tr>
         )
