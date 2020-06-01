@@ -5,21 +5,32 @@ import Input from '../common/form/Input'
 
 class CredList extends React.Component {
 
+    add(index, item = {}) {
+        if(!this.props.readOnly) {
+            console.log(index);
+        }
+    }
+
     renderRows() {
-        return (
-            <tr>
-                <td>
-                    <Field name='credits[0].name' placeholder='Informe o nome' readOnly={this.props.readOnly}
-                        component={Input} />
-                </td>
-                <td>
-                    <Field name='credits[0].value' placeholder='Informe o valor' readOnly={this.props.readOnly}
-                        component={Input} />
-                </td>
-                <td>
-                    
-                </td>
-            </tr>
+
+        const list = this.props.list || []
+
+        return list.map(
+            (credits, index) => (
+                <tr key={index}>
+                    <td>
+                        <Field name={`credits[${index}].name`} placeholder='Informe o nome' readOnly={this.props.readOnly}
+                            component={Input} />
+                    </td>
+                    <td>
+                        <Field name={`credits[${index}].value`} placeholder='Informe o valor' readOnly={this.props.readOnly}
+                            component={Input} />
+                    </td>
+                    <td>
+                        <button type='button' className='btn btn-success' onClick={()=> this.add(index + 1)} ><i className='fa fa-plus'></i></button>
+                    </td>
+                </tr>
+            )
         )
     }
 
@@ -34,7 +45,7 @@ class CredList extends React.Component {
                             <tr>
                                 <th>Nome</th>
                                 <th>Valor</th>
-                                <th>Ações</th>
+                                <th className='table-actions'>Ações</th>
                             </tr>
                         </thead>
                         <tbody>

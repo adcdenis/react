@@ -8,16 +8,14 @@ import TabHeader from "../common/tab/tabHeader"
 import TabContent from "../common/tab/tabContent"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { selectTab, showTabs } from "../common/tab/tabActions"
 import BillingCycleList from './billingCycleList'
 import BillingCycleForm from './billingCycleForm'
-import { create, update, excluir } from './billingCycleAction'
+import { create, update, excluir, init } from './billingCycleAction'
 
 class BillingCycles extends React.Component {
 
   componentDidMount() {
-    this.props.selectTab('tabList')
-    this.props.showTabs('tabList', 'tabCreate')
+    this.props.init()
   }
 
   render() {
@@ -53,5 +51,5 @@ class BillingCycles extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ selectTab, showTabs, create, update, excluir }, dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators({ create, update, excluir, init }, dispatch)
 export default connect(null, mapDispatchToProps)(BillingCycles)
