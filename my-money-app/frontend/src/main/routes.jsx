@@ -6,6 +6,7 @@ import BillingCycle from "../billingCycle/billingCycle"
 
 export default (props) => (
   <Router>
+    {props.children}
     <Switch>
       <Route path="/dashboard" component={DashBoard} />
       <Route path="/billingCycles" component={BillingCycle} />
