@@ -1,0 +1,51 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "backend: dir",
+            "command": "cd backend",
+            "type": "shell"
+        },
+        {
+            "label": "mongodb: start",
+            "command": "mongod",
+            "type": "shell",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "showReuseMessage": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "backend: start",
+            "command": "npm run dev",
+            "options": {
+                "cwd": "backend"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "showReuseMessage": false
+            },
+            "type": "shell",
+            "problemMatcher": []
+        },
+        {
+            "label": "frontend: start",
+            "command": "npm start dev",
+            "options": {
+                "cwd": "frontend"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "showReuseMessage": false
+            },
+            "type": "shell",
+            "problemMatcher": []
+        }
+    ]
+}
