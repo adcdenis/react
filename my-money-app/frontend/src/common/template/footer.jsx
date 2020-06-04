@@ -6,7 +6,7 @@ export default (props) => (
     <strong>
       Copyright &copy; 2020
       <a href='http://canuto.com.br' target='_blank'>
-        CanutoBr
+      {" "}CanutoBr
       </a>
     </strong>
   </footer>
