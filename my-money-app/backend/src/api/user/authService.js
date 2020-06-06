@@ -27,13 +27,13 @@ const signup = (req, res, next) => {
   if (!email.match(emailRegex)) {
     return res.status(400).send({ errors: ['O e-mail informa está inválido'] })
   }
-  if (!password.match(passwordRegex)) {
+  /*if (!password.match(passwordRegex)) {
     return res.status(400).send({
       errors: [
         'Senha precisar ter: uma letra maiúscula, uma letra minúscula, um número, uma caractere especial(@#$%) e tamanho entre 6-20.',
       ],
     })
-  }
+  }*/
   const salt = bcrypt.genSaltSync()
   const passwordHash = bcrypt.hashSync(password, salt)
   if (!bcrypt.compareSync(confirmPassword, passwordHash)) {
@@ -64,7 +64,7 @@ const login = (req, res, next) => {
     if (err) {
       return sendErrorsFromDB(res, err)
     } else if (user && bcrypt.compareSync(password, user.password)) {
-      const token = jwt.sign(user, env.authSecret, {
+      const token = jwt.sign({...user}, env.authSecret, {
         expiresIn: '1 day',
       })
       const { name, email } = user
