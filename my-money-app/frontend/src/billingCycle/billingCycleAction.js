@@ -5,7 +5,7 @@ import { initialize } from 'redux-form'
 import { showTabs, selectTab } from '../common/tab/tabActions'
 
 const BASE_URL = 'http://localhost:3003/api'
-const INITIAL_VALUES = { credits: [{}], debts: [{}]}
+const INITIAL_VALUES = { credits: [{}], debts: [{}] }
 
 export function getList() {
   const request = axios.get(`${BASE_URL}/billingCycles`)
@@ -20,6 +20,12 @@ export function create(values) {
 }
 
 export function showEditar(billingCycle) {
+  billingCycle.debts =
+    billingCycle.debts.length === 0 ? [{}] : billingCycle.debts
+
+  billingCycle.credits =
+    billingCycle.credits.length === 0 ? [{}] : billingCycle.credits
+
   return [
     selectTab('tabUpdate'),
     showTabs('tabUpdate'),
@@ -40,7 +46,7 @@ export function init() {
     selectTab('tabList'),
     showTabs('tabList', 'tabCreate'),
     initialize('billingCycleForm', INITIAL_VALUES),
-    getList()
+    getList(),
   ]
 }
 
