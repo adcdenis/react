@@ -55,9 +55,24 @@ cd node-modules/.bin/pm2 monit
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------
-VERIFICAR ULTIMAS VERSÕES DAS LIBS DO SEU PROJETO
+DEPLOY HEROKY BACK END
+
+https://github.com/cod3rcursos/deploy-heroku-backend
 
 
--------------------------------------------------------------------------------------------------------------------------------------------
-PLUGINS CODE REACT
+https://github.com/adcdenis/react/tree/master/my-money-app/backend
+
+heroku git:remote -a adcdenis-my-money-app-backend
+
+
+mongodb://<dbuser>:<dbpassword>@ds261332.mlab.com:61332/heroku_pgmnb2sr
+
+mongodb://mymoneyapp:mymoneyapp1@ds261332.mlab.com:61332/heroku_pgmnb2sr
+
+heroku config:set MONGOLAB_URI=mongodb://mymoneyapp:mymoneyapp1@ds261332.mlab.com:61332/heroku_pgmnb2sr
+
+heroku config:set AUTH_SECRET=4bc12841oiklasdi@#71ab76b99699d6
+
+
+git subtree push --prefix my-money-app/backend  heroku master
 
