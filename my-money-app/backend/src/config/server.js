@@ -11,6 +11,7 @@ server.use(queryParser())
 
 server.use(cors)
 
+
 server.listen(port, function() {
  console.log(`BACKEND is rodando na porta ${port}.`)
 })
