@@ -1,7 +1,7 @@
 const cors = require('./cors')
 const queryParser = require('express-query-int')
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3003;
 const bodyParser = require('body-parser')
 const express = require('express')
 const server = express()
