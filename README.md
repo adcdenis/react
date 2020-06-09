@@ -76,3 +76,33 @@ heroku config:set AUTH_SECRET=4bc12841oiklasdi@#71ab76b99699d6
 
 git subtree push --prefix my-money-app/backend  heroku master
 
+
+https://adcdenis-my-money-app-backend.herokuapp.com/
+
+
+----------------------------------------------------------
+DEPLOY HEROKU FRONTEND
+
+
+heroku create adcdenis-my-money-app-frontend
+
+heroku git:remote -a adcdenis-my-money-app-frontend
+
+git add .
+$ git commit -am "Ajustando URLs do backend"
+
+git subtree push --prefix my-money-app/frontend  heroku master
+
+
+
+
+
+
+
+
+
+
+
+
+
+
