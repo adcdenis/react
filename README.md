@@ -93,6 +93,8 @@ $ git commit -am "Ajustando URLs do backend"
 
 git subtree push --prefix my-money-app/frontend  heroku master
 
+heroku logs --tail
+
 
 
 
