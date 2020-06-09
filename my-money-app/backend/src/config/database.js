@@ -11,7 +11,7 @@ mongoose.Error.messages.Number.max =
 mongoose.Error.messages.String.enum =
   "'{VALUE}' não é válido para o atributo '{PATH}'."
 
-const url = process.env.MONGOLAB_URI
-  ? process.env.MONGOLAB_URI
-  : 'mongodb://localhost/mymoney'
-module.exports = mongoose.connect(url, { useNewUrlParser: true })
+const urlHeroku = 'mongodb://mymoneyapp:mymoneyapp1@ds261332.mlab.com:61332/heroku_pgmnb2sr'
+const urlLocal =  'mongodb://localhost/mymoney'
+const url = process.env.MONGOLAB_URI ? process.env.MONGOLAB_URI : urlHeroku
+module.exports = mongoose.connect(urlHeroku, { useNewUrlParser: true })
