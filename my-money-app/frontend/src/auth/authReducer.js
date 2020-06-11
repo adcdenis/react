@@ -14,7 +14,9 @@ export default (state = INITIAL_STATE, action) => {
         return { ...state, validToken: false, user: null }
       }
     case 'USER_FETCHED':
+      console.log('user autenticado, salvando na storage')
       localStorage.setItem(userKey, JSON.stringify(action.payload))
+      console.log('salvou no storage: ' + localStorage.getItem(userKey))
       return { ...state, user: action.payload, validToken: true }
     default:
       return state

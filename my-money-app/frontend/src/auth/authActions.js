@@ -11,9 +11,12 @@ export function signup(values) {
 
 function submit(values, url) {
   return (dispatch) => {
+    console.log('efetuando dispatch de autorizacao')
     axios
       .post(url, values)
       .then((resp) => {
+        console.log('dispatch de autorizacao efetuado')
+        console.log(resp.data)
         dispatch([{ type: 'USER_FETCHED', payload: resp.data }])
       })
       .catch((e) => {
