@@ -8,15 +8,24 @@ import thunk from 'redux-thunk'
 import multi from 'redux-multi'
 import { applyMiddleware, createStore } from 'redux'
 import AuthOrApp from '../src/main/authOrApp'
+import * as serviceWorker from './serviceWorker'
 
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION__&& window.__REDUX_DEVTOOLS_EXTENSION__()
-const store = applyMiddleware(promise, thunk, multi)(createStore)(reducers, devTools)
+const devTools =
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const store = applyMiddleware(promise, thunk, multi)(createStore)(
+  reducers,
+  devTools
+)
 //const store = applyMiddleware(promise)(createStore)(reducers)
 //const store = createStore(reducers)
 
 ReactDOM.render(
-  <Provider store={store}>
-    <AuthOrApp />
-  </Provider>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <AuthOrApp />
+    </Provider>
+  </React.StrictMode>,
   document.getElementById('app')
 )
+
+serviceWorker.unregister();
