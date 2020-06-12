@@ -10,16 +10,22 @@ export function signup(values) {
 }
 
 function submit(values, url) {
+  alert(url)
   return (dispatch) => {
-    console.log('efetuando dispatch de autorizacao')
     axios
       .post(url, values)
       .then((resp) => {
-        console.log('dispatch de autorizacao efetuado')
-        console.log(resp.data)
         dispatch([{ type: 'USER_FETCHED', payload: resp.data }])
       })
       .catch((e) => {
+        if (e.response) {
+          alert('1')
+          alert(e)
+        } else if (e.request) {
+          alert('2')
+          alert(e.request)
+          console.log(e.request)
+        }
         e.response.data.errors.forEach((error) => toastr.error('Erro', error))
       })
   }
