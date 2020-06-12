@@ -11,8 +11,8 @@ export function signup(values) {
 
 function submit(values, url) {
 
-  alert(process.env.NODE_ENV)
-  alert(url)
+  //alert(process.env.NODE_ENV)
+  //alert(url)
 
   return (dispatch) => {
     axios
