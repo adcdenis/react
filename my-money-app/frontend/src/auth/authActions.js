@@ -10,7 +10,10 @@ export function signup(values) {
 }
 
 function submit(values, url) {
+
+  alert(process.env.NODE_ENV)
   alert(url)
+
   return (dispatch) => {
     axios
       .post(url, values)
@@ -18,14 +21,6 @@ function submit(values, url) {
         dispatch([{ type: 'USER_FETCHED', payload: resp.data }])
       })
       .catch((e) => {
-        if (e.response) {
-          alert('1')
-          alert(e)
-        } else if (e.request) {
-          alert('2')
-          alert(e.request)
-          console.log(e.request)
-        }
         e.response.data.errors.forEach((error) => toastr.error('Erro', error))
       })
   }
