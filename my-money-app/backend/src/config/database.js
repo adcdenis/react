@@ -11,6 +11,6 @@ mongoose.Error.messages.String.enum =
 
 const urlHeroku = 'mongodb://mymoneyapp:mymoneyapp1@ds261332.mlab.com:61332/heroku_pgmnb2sr'
 const urlLocal =  'mongodb://localhost/mymoney'
-const url = process.env.MONGOLAB_URI ? process.env.MONGOLAB_URI : urlHeroku
+const url = process.env.MONGOLAB_URI ? process.env.MONGOLAB_URI : urlLocal
 
-module.exports = mongoose.connect(urlHeroku, { useNewUrlParser: true })
+module.exports = mongoose.connect(url, { useNewUrlParser: true })
