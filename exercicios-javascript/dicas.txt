@@ -1,0 +1,1 @@
+intalar plugin node exec para executar javascript com f8
